@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:soundescape/pages/loginSignup/forgotPass.dart';
 
@@ -9,35 +10,14 @@ class resetpass extends StatefulWidget {
 }
 
 class _resetpassState extends State<resetpass> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-
-  // Future<void> CreateAcc() async {
-  //   var emailAddress = emailController.text.trim();
-  //   var password = passwordController.text.trim();
-  //   try {
-  //     final credential =
-  //         await FirebaseAuth.instance.createUserWithEmailAndPassword(
-  //       email: emailAddress,
-  //       password: password,
-  //     );
-  //   } on FirebaseAuthException catch (e) {
-  //     if (e.code == 'weak-password') {
-  //       print('The password provided is too weak.');
-  //     } else if (e.code == 'email-already-in-use') {
-  //       print('The account already exists for that email.');
-  //     }
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  // }
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.only(left: 20, right: 20),
+          padding: const EdgeInsets.only(left: 20, right: 20),
           child: Column(
             children: [
               Align(
@@ -47,9 +27,9 @@ class _resetpassState extends State<resetpass> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => forgotPassword()));
+                            builder: (context) => const forgotPassword()));
                   },
-                  child: CircleAvatar(
+                  child: const CircleAvatar(
                     backgroundColor: Colors.black,
                     child: Icon(Icons.arrow_back),
                   ),
@@ -59,16 +39,14 @@ class _resetpassState extends State<resetpass> {
                   alignment: Alignment.centerRight,
                   child: Image.asset("assets/leaves.png")),
               Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Forgot Password",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
-                ),
-              ),
-              SizedBox(
+                  alignment: Alignment.centerLeft,
+                  child: TextButton(
+                      onPressed: () {}, child: const Text("Reset Password"))),
+              const SizedBox(
                 height: 70,
               ),
-              Text("Password reset link has been sent to your email address"),
+              const Text(
+                  "Password reset link has been sent to your email address"),
             ],
           ),
         ),

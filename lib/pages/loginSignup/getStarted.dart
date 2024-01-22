@@ -20,25 +20,25 @@ class getStarted extends StatelessWidget {
                 width: 300,
               ),
             ),
-            Text(
+            const Text(
               "LET'S GET STARTED",
               style: TextStyle(fontSize: 34),
             ),
-            SizedBox(
+            const SizedBox(
               height: 60,
             ),
-            Text(
+            const Text(
               "Login or create an account to proceed.",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Container(
               height: 50,
               width: 350,
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [
                       Color.fromRGBO(166, 146, 202, 100),
                       Color.fromRGBO(255, 255, 255, 100)
@@ -50,12 +50,12 @@ class getStarted extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SignupPage()));
+                      MaterialPageRoute(builder: (context) => const SignupPage()));
                 },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
                     shadowColor: Colors.transparent),
-                child: Text(
+                child: const Text(
                   'Sign-Up',
                   style: TextStyle(
                       color: Colors.white,
@@ -64,7 +64,7 @@ class getStarted extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
@@ -77,12 +77,12 @@ class getStarted extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => loginPage()));
+                      MaterialPageRoute(builder: (context) => const loginPage()));
                 },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
                     shadowColor: Colors.transparent),
-                child: Text(
+                child: const Text(
                   'Login',
                   style: TextStyle(
                       color: Colors.white,
