@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:soundescape/pages/loginSignup/getStarted.dart';
 import 'package:soundescape/pages/loginSignup/login.dart';
 
 import 'package:soundescape/pages/onboarding/onboardingModel.dart';
@@ -34,12 +33,12 @@ class _OnBoardingState extends State<OnBoardingScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(0),
+          padding: const EdgeInsets.all(0),
           height: height,
           child: SafeArea(
             child: Column(
               children: [
-                Container(
+                SizedBox(
                   height: 560,
                   child: PageView.builder(
                     itemCount: demo_data.length,
@@ -63,12 +62,12 @@ class _OnBoardingState extends State<OnBoardingScreen> {
                     (index) => buildDot(index, _currentPage == index),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Container(
                   height: 50,
                   width: 350,
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
+                    gradient: const LinearGradient(
                       colors: [
                         Color.fromRGBO(166, 146, 202, 100),
                         Color.fromRGBO(255, 255, 255, 100)
@@ -82,14 +81,14 @@ class _OnBoardingState extends State<OnBoardingScreen> {
                     onPressed: () {
                       if (_currentPage < demo_data.length - 1) {
                         _pageController.nextPage(
-                          duration: Duration(milliseconds: 10),
+                          duration: const Duration(milliseconds: 10),
                           curve: Curves.ease,
                         );
                       } else {
                         // Navigate to the login page when on the last onboarding screen
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => loginPage()),
+                          MaterialPageRoute(builder: (context) => const loginPage()),
                         );
                       }
                     },
@@ -97,7 +96,7 @@ class _OnBoardingState extends State<OnBoardingScreen> {
                       backgroundColor: Colors.transparent,
                       shadowColor: Colors.transparent,
                     ),
-                    child: Text(
+                    child: const Text(
                       'Next',
                       style: TextStyle(
                         color: Colors.white,
@@ -117,7 +116,7 @@ class _OnBoardingState extends State<OnBoardingScreen> {
 
   Widget buildDot(int index, bool isActive) {
     return Container(
-      margin: EdgeInsets.all(8),
+      margin: const EdgeInsets.all(8),
       width: isActive ? 12 : 8,
       height: isActive ? 12 : 8,
       decoration: BoxDecoration(
@@ -139,7 +138,7 @@ class OnBoarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 20, right: 20),
+      padding: const EdgeInsets.only(left: 20, right: 20),
       child: Center(
         child: Column(
           children: [
@@ -151,19 +150,19 @@ class OnBoarding extends StatelessWidget {
             Text(
               title,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 34,
                 fontWeight: FontWeight.w400,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 80,
             ),
             Text(
               desc,
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 18,
               ),

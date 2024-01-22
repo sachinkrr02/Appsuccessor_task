@@ -1,17 +1,22 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:soundescape/pages/loginSignup/login.dart';
+import 'package:soundescape/pages/onboarding/onboarding.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  void signout() async {
+    await FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50.0),
+        preferredSize: const Size.fromHeight(50.0),
         child: AppBar(
           flexibleSpace: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [
                   Color.fromRGBO(166, 146, 202, 100),
@@ -22,11 +27,11 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          title: Text("Listen, Focus, Unwind"),
+          title: const Text("Listen, Focus, Unwind"),
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.only(left: 20, right: 20, bottom: 60),
+        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 60),
         child: Align(
           alignment: Alignment.bottomCenter,
           child: Container(
@@ -37,13 +42,17 @@ class HomePage extends StatelessWidget {
                 border: Border.all(color: Colors.white, width: 1)),
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => loginPage()));
+                signout();
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const OnBoardingScreen()));
+                signout();
               },
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
                   shadowColor: Colors.transparent),
-              child: Text(
+              child: const Text(
                 'Sign-Out',
                 style: TextStyle(
                     color: Colors.white,
