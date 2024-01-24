@@ -9,20 +9,20 @@ class getStarted extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        padding: EdgeInsets.only(top: 60),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Align(
               alignment: Alignment.topCenter,
               child: Image.asset(
                 "assets/logoo.png",
-                height: 300,
-                width: 300,
+                height: 340,
+                width: 340,
               ),
             ),
             const Text(
               "LET'S GET STARTED",
-              style: TextStyle(fontSize: 34),
+              style: TextStyle(fontSize: 40),
             ),
             const SizedBox(
               height: 60,
@@ -49,8 +49,10 @@ class getStarted extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20.0)),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const SignupPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SignupPage()));
                 },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
@@ -59,8 +61,8 @@ class getStarted extends StatelessWidget {
                   'Sign-Up',
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500),
                 ),
               ),
             ),
@@ -76,8 +78,10 @@ class getStarted extends StatelessWidget {
                   border: Border.all(color: Colors.white, width: 1)),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const loginPage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const loginPage()));
                 },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
@@ -86,8 +90,8 @@ class getStarted extends StatelessWidget {
                   'Login',
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500),
                 ),
               ),
             ),

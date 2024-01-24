@@ -23,7 +23,7 @@ class _forgotPasswordState extends State<forgotPassword> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.only(left: 20, right: 20),
+          padding: const EdgeInsets.only(left: 30, right: 30, top: 28),
           child: Column(
             children: [
               Align(
@@ -43,7 +43,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Forgot Password",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 34, fontWeight: FontWeight.w600),
                 ),
               ),
               const SizedBox(
@@ -51,6 +51,9 @@ class _forgotPasswordState extends State<forgotPassword> {
               ),
               const Align(
                   alignment: Alignment.centerLeft, child: Text("Email ID")),
+              SizedBox(
+                height: 5,
+              ),
               TextField(
                 controller: emailController,
                 decoration: InputDecoration(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:soundescape/pages/loginSignup/getStarted.dart';
 import 'package:soundescape/pages/loginSignup/login.dart';
 
 import 'package:soundescape/pages/onboarding/onboardingModel.dart';
@@ -37,6 +38,7 @@ class _OnBoardingState extends State<OnBoardingScreen> {
           height: height,
           child: SafeArea(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SizedBox(
                   height: 560,
@@ -62,46 +64,52 @@ class _OnBoardingState extends State<OnBoardingScreen> {
                     (index) => buildDot(index, _currentPage == index),
                   ),
                 ),
-                const SizedBox(height: 20),
-                Container(
-                  height: 50,
-                  width: 350,
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [
-                        Color.fromRGBO(166, 146, 202, 100),
-                        Color.fromRGBO(255, 255, 255, 100)
-                      ],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
-                    ),
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_currentPage < demo_data.length - 1) {
-                        _pageController.nextPage(
-                          duration: const Duration(milliseconds: 10),
-                          curve: Curves.ease,
-                        );
-                      } else {
-                        // Navigate to the login page when on the last onboarding screen
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const loginPage()),
-                        );
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.transparent,
-                      shadowColor: Colors.transparent,
-                    ),
-                    child: const Text(
-                      'Next',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 30),
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      height: 50,
+                      width: 350,
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: [
+                            Color.fromRGBO(166, 146, 202, 100),
+                            Color.fromRGBO(255, 255, 255, 100)
+                          ],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (_currentPage < demo_data.length - 1) {
+                            _pageController.nextPage(
+                              duration: const Duration(milliseconds: 10),
+                              curve: Curves.ease,
+                            );
+                          } else {
+                            // Navigate to the login page when on the last onboarding screen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const getStarted()),
+                            );
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                        ),
+                        child: const Text(
+                          'Next',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -121,7 +129,7 @@ class _OnBoardingState extends State<OnBoardingScreen> {
       height: isActive ? 12 : 8,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: isActive ? Colors.blue : Colors.grey,
+        color: isActive ? Color.fromRGBO(91, 95, 151, 100) : Colors.grey,
       ),
     );
   }
@@ -144,8 +152,8 @@ class OnBoarding extends StatelessWidget {
           children: [
             Image.asset(
               image,
-              height: 300,
-              width: 300,
+              height: 335,
+              width: 335,
             ),
             Text(
               title,
@@ -157,16 +165,19 @@ class OnBoarding extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 80,
+              height: 15,
             ),
-            Text(
-              desc,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 18,
+            Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Text(
+                desc,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+                softWrap: true,
               ),
-              softWrap: true,
             ),
           ],
         ),
