@@ -22,11 +22,7 @@ class _bnbState extends State<bnb> {
     return Container(
       height: 50,
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
+        color: Color.fromRGBO(47, 47, 74, 1),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
