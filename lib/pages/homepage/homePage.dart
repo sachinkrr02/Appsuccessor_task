@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:soundescape/pages/homepage/bottomNav.dart';
 import 'package:soundescape/pages/homepage/cardModel.dart';
+import 'package:soundescape/pages/homepage/sleepStoryModel.dart';
+import 'package:soundescape/pages/homepage/soundsModel.dart';
+import 'package:soundescape/pages/musicPlayer/sleepMusic.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -80,102 +83,111 @@ class _HomePageState extends State<HomePage> {
                       ),
 
                       //card try
-                      Container(
-                        height: height * 0.7,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          color: Colors.transparent,
-                        ),
-                        child: AlignedGridView.count(
-                          physics: NeverScrollableScrollPhysics(),
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 4,
-                          crossAxisSpacing: 4,
-                          itemCount: 5,
-                          itemBuilder: (context, index) {
-                            return Card(
-                              child: Container(
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(18),
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Color.fromRGBO(96, 98, 155, 1),
-                                      Color.fromRGBO(194, 187, 203, 1),
-                                    ],
-                                    begin: Alignment.bottomCenter,
-                                    end: Alignment.topCenter,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SleepMusic()));
+                        },
+                        child: Container(
+                          height: height * 0.8,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(40),
+                            color: Colors.transparent,
+                          ),
+                          child: AlignedGridView.count(
+                            physics: NeverScrollableScrollPhysics(),
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 4,
+                            crossAxisSpacing: 4,
+                            itemCount: 5,
+                            itemBuilder: (context, index) {
+                              return Card(
+                                child: Container(
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(18),
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color.fromRGBO(96, 98, 155, 1),
+                                        Color.fromRGBO(194, 187, 203, 1),
+                                      ],
+                                      begin: Alignment.bottomCenter,
+                                      end: Alignment.topCenter,
+                                    ),
                                   ),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Stack(
-                                      alignment: Alignment.center,
-                                      children: [
-                                        Image.asset(
-                                          demo_data[index].image,
-                                        ),
-                                        SizedBox(
-                                          height: 20,
-                                        ),
-                                        Align(
-                                          alignment: Alignment.center,
-                                          child: CircleAvatar(
-                                            backgroundColor: Colors.transparent,
-                                            child: Icon(
-                                              Icons.play_arrow_rounded,
-                                              size: 40,
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Stack(
+                                        alignment: Alignment.center,
+                                        children: [
+                                          Image.asset(
+                                            demo_data[index].image,
+                                          ),
+                                          SizedBox(
+                                            height: 20,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.center,
+                                            child: CircleAvatar(
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              child: Icon(
+                                                Icons.play_arrow_rounded,
+                                                size: 40,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        demo_data[index].listners,
-                                        style: TextStyle(fontSize: 12),
+                                        ],
                                       ),
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          demo_data[index].title,
-                                          style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                      Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          demo_data[index].listners,
+                                          style: TextStyle(fontSize: 12),
                                         ),
-                                        IconButton(
-                                          onPressed: () {
-                                            setState(() {
-                                              expandedIndex =
-                                                  expandedIndex == index
-                                                      ? -1
-                                                      : index;
-                                            });
-                                          },
-                                          icon: Icon(
-                                            expandedIndex == index
-                                                ? Icons.arrow_drop_up
-                                                : Icons.arrow_drop_down,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            demo_data[index].title,
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w500,
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    if (expandedIndex == index)
-                                      Visibility(
-                                        child: Text(demo_data[index].desc),
-                                      )
-                                  ],
+                                          IconButton(
+                                            onPressed: () {
+                                              setState(() {
+                                                expandedIndex =
+                                                    expandedIndex == index
+                                                        ? -1
+                                                        : index;
+                                              });
+                                            },
+                                            icon: Icon(
+                                              expandedIndex == index
+                                                  ? Icons.arrow_drop_up
+                                                  : Icons.arrow_drop_down,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      if (expandedIndex == index)
+                                        Visibility(
+                                          child: Text(demo_data[index].desc),
+                                        )
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
+                              );
+                            },
+                          ),
                         ),
                       ),
                       Row(
@@ -218,7 +230,8 @@ class _HomePageState extends State<HomePage> {
                                 margin: EdgeInsets.all(8),
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
-                                      image: AssetImage("assets/sleep.png"),
+                                      image:
+                                          AssetImage(sleep_story[index].image),
                                       fit: BoxFit.fill),
                                 ),
                                 child: Padding(
@@ -230,7 +243,7 @@ class _HomePageState extends State<HomePage> {
                                       Align(
                                           alignment: Alignment.bottomLeft,
                                           child: Text(
-                                            "The Young Scout",
+                                            sleep_story[index].title,
                                             style: TextStyle(
                                                 color: Colors.white,
                                                 fontSize: 16,
@@ -241,7 +254,7 @@ class _HomePageState extends State<HomePage> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            "10k Listeners",
+                                            sleep_story[index].desc,
                                             style: TextStyle(fontSize: 12),
                                           ),
                                           Text(
@@ -302,19 +315,21 @@ class _HomePageState extends State<HomePage> {
                                             Align(
                                                 alignment: Alignment.centerLeft,
                                                 child: Text(
-                                                  "Nature",
+                                                  Sounds[index].title,
                                                   style: TextStyle(
                                                       fontSize: 20,
                                                       fontWeight:
                                                           FontWeight.bold),
                                                 )),
-                                            Text("2.5K listeners")
+                                            Text(Sounds[index].desc)
                                           ],
                                         ),
                                       ),
                                       Image(
-                                          image:
-                                              AssetImage("assets/fitness.png"))
+                                        image: AssetImage(Sounds[index].image),
+                                        height: 100,
+                                        width: 100,
+                                      )
                                     ],
                                   ),
                                 ),
