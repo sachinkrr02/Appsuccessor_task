@@ -10,14 +10,12 @@ class resetpass extends StatefulWidget {
 }
 
 class _resetpassState extends State<resetpass> {
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.only(left: 20, right: 20),
+          padding: const EdgeInsets.only(left: 30, right: 30),
           child: Column(
             children: [
               Align(
@@ -27,7 +25,7 @@ class _resetpassState extends State<resetpass> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const forgotPassword()));
+                            builder: (context) => forgotPassword()));
                   },
                   child: const CircleAvatar(
                     backgroundColor: Colors.black,
@@ -39,14 +37,19 @@ class _resetpassState extends State<resetpass> {
                   alignment: Alignment.centerRight,
                   child: Image.asset("assets/leaves.png")),
               Align(
-                  alignment: Alignment.centerLeft,
-                  child: TextButton(
-                      onPressed: () {}, child: const Text("Reset Password"))),
+                alignment: Alignment.topLeft,
+                child: Text(
+                  "Forgot Password",
+                  style: TextStyle(fontSize: 28),
+                ),
+              ),
               const SizedBox(
                 height: 70,
               ),
               const Text(
-                  "Password reset link has been sent to your email address"),
+                "Password reset link has been sent to your email address",
+                style: TextStyle(fontSize: 18),
+              ),
             ],
           ),
         ),
